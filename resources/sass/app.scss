@@ -1,0 +1,43 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+@import '~jquery-ui/themes/base/all.css';
+
+@import '~line-awesome/dist/line-awesome/scss/line-awesome.scss';
+
+.book {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	.caption {
+		margin-top: 7px;
+		margin-bottom: 15px;
+		h6 {
+			color: #455a64;
+		}
+		.price {
+			+ {
+				.price {
+					margin-left: 15px;
+				}
+			}
+		}
+	}
+}
+.book.tumbnail {
+	box-shadow: 0 5px 25px 0 transparent;
+	transition: 0.3s linear;
+	padding-top: 0;
+	img {
+		&:hover {
+			box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.2);
+		}
+	}
+}
