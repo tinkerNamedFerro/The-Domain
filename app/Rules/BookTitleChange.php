@@ -29,8 +29,13 @@ class BookTitleChange implements Rule
      */
     public function passes($attribute, $value)
     {
+        $it_exists = $author = DB::table('books')->where('title', '=', $value)->exists();
         //Checks if title is the same or if it exists else where
-        return (DB::table('books')->where('title', '=', $value)->first()->id == $this->id);
+        if ($it_exists){
+            return (DB::table('books')->where('title', '=', $value)->first()->id == $this->id);
+        }else{
+            return true;
+        }
     }
 
     /**

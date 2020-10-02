@@ -57,12 +57,12 @@ class BookController extends Controller
         $books = $books->get();
         
         $books->sortBy('id');
+        
         //$books = $books->sortByDesc('id');
 
         $books = $books->sortByDesc(function ($book, $key) { //$book row and key is index
-            return $book->reviews()->avg('rating');
+            return $book->reviews()->avg('rating') + $book->reviews->count();
         });
-        
         // dd($books[0]->reviews);
         // dd($request->query('genre'));
         //halfmoon.index
@@ -173,7 +173,7 @@ class BookController extends Controller
     {
         session(['edit_book_id' => $id]);
         $book = Books::find($id);
-        return view('layouts.books.edit_form')->with('book',$book)->with('genre', Config::get('constants.genre'));
+        return view('layouts.books.edit_form')->with('book',$book)->with('genre', Config::get('constants.genre'))->with('authors', Authors::all());
     }
 
     /**
@@ -185,31 +185,29 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         if (Auth::user()->role == "Curator" AND Auth::user()->status == "Approved"){
             $this->validate($request, [
                 'title'=> ['required' ,'max:255',new BookTitleChange($id)],
                 'publication' => 'required|numeric|gte:1701|lte:2020',
                 'genre'=> ['required','string',new GenreDropDown],
-                'first_name'=> 'required',
-                'last_name'=> 'required',
-                'date_of_birth'=> 'required|date',
-                'nationality'=> 'required',
                 ]);
             //Add book
+            
             $book = Books::find($id);
             $book->title = $request->title;
             $book->publication = $request->publication;
             $book->genre= $request->genre; 
             $book->save();
             // Check if author exists with first,last name and dob
-                                     
-            $author = Authors::where('id', $request->id)->first();
-    
-            $author->first_name = $request->first_name;
-            $author->last_name = $request->last_name;
-            $author->date_of_birth= $request->date_of_birth; 
-            $author->nationality= $request->nationality; 
-            $author->save();
+            foreach($request->input('addmore') as $key => $value) {
+                if (!DB::table('authors_books')->where('authors_id', $key)->where('books_id', $book->id)->exists()){
+                    $linking = new Authors_Books();
+                    $linking->authors_id = $key ;
+                    $linking->books_id = $book->id;
+                    $linking->save();
+                }
+            }                       
         
             
             //Remove session
@@ -270,8 +268,8 @@ class BookController extends Controller
         // Get all books with reviews from the last 30 days 
         $books = Books::cursor()->filter(function ($book, $key) { //$book row and key is index
                 // dd();
-                if ($book->reviews()->count() > 2){
-                    return $book->reviews()->orderBy('updated_at', 'desc')->first()->updated_at > Carbon::now()->subDays(30);
+                if ($book->reviews()->count() > 2){ //At least two comments
+                    return $book->reviews()->orderBy('updated_at', 'desc')->first()->updated_at > Carbon::now()->subDays(30); // Get with comment from last 30 days
                 }else{
                     return false;
                 }
@@ -281,6 +279,8 @@ class BookController extends Controller
         $books = $books->sortByDesc(function ($book, $key) { //$book row and key is index
             return $book->reviews()->avg('rating');
         });
+        $books = $books->pluck('id')->toArray();
+        $books = Books::findMany($books); //Convert to elquent to use easy fk
         $books = $books->take(5);
         return(view('layouts.books.hot')->with('books', $books));
     }
@@ -317,8 +317,13 @@ class BookController extends Controller
                     return $book->reviews()->avg('rating');
                 });
                 
-                // Take the first four  
-                $books = $books->take(4);
+                // Take the first four 
+                
+                $books = $books->pluck('title')->toArray();
+                //dd($books);
+                $books = Books::whereIn("title",$books)->get();
+                // dd($books);
+                $books = $books->take(5);
                 // dd($books);
             }
         }

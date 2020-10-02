@@ -3,9 +3,8 @@
     Products
 @endsection
 @section('content')
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
-<div class="container-fluid">
+<div class="container"><br><br></div>
+<div class="container-fluid pl-20">
     <div class="row flow-offset-1">
     
         @foreach($books as $book)

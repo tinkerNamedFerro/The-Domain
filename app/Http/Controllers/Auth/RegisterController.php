@@ -69,7 +69,7 @@ class RegisterController extends Controller
     {
         if ($data["role"] == "Curator"){
             #$status = "Approved"; //! FOR NOW
-            $staus = "Waiting for approval";
+            $status = "Waiting for approval";
         }else {
             $status = "N/A";
         }

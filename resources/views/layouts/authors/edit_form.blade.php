@@ -3,7 +3,6 @@
     Books
 @endsection
 @section('content')
-<script type="application/javascript" src="{{ asset('js/app.js') }}"></script>
 <script type="application/javascript">
 
 </script>

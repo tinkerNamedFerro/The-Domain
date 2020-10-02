@@ -4,9 +4,10 @@
 @endsection
 @section('content')
 
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
-<div class="container-fluid">
+<!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<script type="text/javascript" src="{{ asset('js/app.js') }}"></script> -->
+<br>
+<div class="container">
     <form class="form-inline" method="POST" action="{{ route('book.filter') }}">
     @csrf
     <label class="sr-only" for="inlineFormInputName2">Book Title</label>
@@ -53,17 +54,24 @@
     <button type="submit" class="btn btn-primary mb-2">Search</button>
     </form>
 </div>
-<div class="container-fluid">
+<br>
+<div class="container-fluid pl-20">
     <div class="row flow-offset-1">
     
         @foreach($books as $book)
             <div class="col-xs-5 col-md-3">
                 <div class="book tumbnail thumbnail-4"><a href="{{ route('book.show', [$book->id])}}"><img src="{{$book->book_cover}}" height="500" width="350" alt=""></a>
                     <div class="caption">
-                    <a class="song_text" href="{{ route('book.show', [$book->id])}}">{{$book->title}}</a>
+                    <a class="song_text" href="{{ route('book.show', [$book->id])}}">
+                    <b>Authors: </b>
+                        @foreach($book->authors as $author)
+                                {{$author->first_name}} {{$author->last_name}},
+                        @endforeach
+                    </a>
                     </div>
                 </div>
             </div>
+            <br>
             <!-- <a href="{{ route('book.show', [$book->id])}}"><li> {{$book->title}}</li></a>
             <img src="{{$book->book_cover}}" height="350" width="350" alt="">
             @foreach($book->authors as $author)

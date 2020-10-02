@@ -105,6 +105,14 @@ class PrefillAuthorsBooksTableSeeder extends Seeder
                 'created_at' => '2020-09-30 11:48:09',
                 'updated_at' => '2020-09-30 11:48:09',
             ),
+            11 => 
+            array (
+                'id' => '20',
+                'authors_id' => '13',
+                'books_id' => '12',
+                'created_at' => '2020-09-30 13:45:16',
+                'updated_at' => '2020-09-30 13:45:16',
+            ),
         ));
         
         

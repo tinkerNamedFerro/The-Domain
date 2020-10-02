@@ -107,6 +107,16 @@ class PrefillBooksTableSeeder extends Seeder
                 'created_at' => '2020-09-30 11:48:09',
                 'updated_at' => '2020-09-30 11:48:09',
             ),
+            9 => 
+            array (
+                'id' => '12',
+                'title' => 'Plant Genetic Engineering Towards the Third Millennium',
+                'genre' => 'Science',
+                'publication' => '2000',
+                'book_cover' => 'https://i.ibb.co/y60DnfM/c8e469aeedad.jpg',
+                'created_at' => '2020-09-30 13:45:16',
+                'updated_at' => '2020-09-30 13:45:16',
+            ),
         ));
         
         

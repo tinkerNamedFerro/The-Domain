@@ -3,7 +3,7 @@
     Books
 @endsection
 @section('content')
-<script type="application/javascript" src="{{ asset('js/app.js') }}"></script>
+<!-- <script type="application/javascript" src="{{ asset('js/app.js') }}"></script> -->
 <script type="application/javascript">
     var i = 0;
     function add_author() {
@@ -12,13 +12,13 @@
         var selectedId = selectBox.options[selectBox.selectedIndex].id;
         console.log(selectedValue + " " + selectedId);
         ++i;
-        $("#author_list").append('<tr><td>'+selectedId+'<input type="text" hidden name="addmore['+selectedValue+'][name]" value="'+selectedValue+'" class="form-control" /></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
+        $("#author_list").append('<tr><td>'+selectedId+'<input type="hidden" hidden name="addmore['+selectedValue+'][name]" value="'+selectedValue+'" class="form-control" /></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
     }
     $(document).on('click', '.remove-tr', function(){  
          $(this).parents('tr').remove();
     });  
     $(document).ready(function(){
-        $('.js-example-basic-single').select2();
+        // $('.js-example-basic-single').select2();
         $("p").click(function(){
             console.log("adsad");
             $(this).hide();
@@ -59,6 +59,7 @@
                             <strong> Must upload book cover</strong>
                         </div>
                     @enderror
+                    <br>
                     <form method="POST" action="{{ route('book.store') }}">
                         @csrf
 
@@ -151,8 +152,9 @@
                         </div>
                         <br><br>
                         
-                        <div class="col-md-8" id="author_list">
+                        <div class="container col-md-4" id="author_list">
                         </div>
+                        <br><br>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
