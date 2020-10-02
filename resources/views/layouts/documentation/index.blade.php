@@ -4,8 +4,8 @@
 @endsection
 @section('content')
 
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+<!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<script type="text/javascript" src="{{ asset('js/app.js') }}"></script> -->
 
 <div class="container">
     <h1>Web Application Development Assignment 2 Documentation</h1>

@@ -4,9 +4,10 @@
 @endsection
 @section('content')
 
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
-<div class="container-fluid">
+<!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<script type="text/javascript" src="{{ asset('js/app.js') }}"></script> -->
+<br>
+<div class="container">
     <form class="form-inline" method="POST" action="{{ route('book.filter') }}">
     @csrf
     <label class="sr-only" for="inlineFormInputName2">Book Title</label>
@@ -53,6 +54,7 @@
     <button type="submit" class="btn btn-primary mb-2">Search</button>
     </form>
 </div>
+<br>
 <div class="container-fluid">
     <div class="row flow-offset-1">
     

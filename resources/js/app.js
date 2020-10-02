@@ -13,22 +13,22 @@ window.moment = require('moment');
 window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-require('bootstrap');
-// const halfmoon = require("halfmoon");
-require("halfmoon");
+
+require("halfmoon/css/halfmoon.min.css");
+const halfmoon = require("halfmoon");
 
 
 require('select2');
 import 'select2/dist/css/select2.css';
 $(document).ready(function() {
-  $('.js-example-basic-single').select2();
+  // $('.js-example-basic-single').select2({
+  //   theme: "flat"
+  // });
+  halfmoon.onDOMContentLoaded();
 });
 
 
 const ePub = require('epubjs');
-// require("halfmoon/css/halfmoon-variables.min.css");
-// const halfmoon = require("halfmoon");
-// halfmoon.onDOMContentLoaded();
 
 // window.Vue = require('vue');
 // window.$('.datepicker').datepicker();

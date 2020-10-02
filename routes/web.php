@@ -46,3 +46,8 @@ Route::get('/documentation', function(){
 Route::get('/documentation/requirements', function(){
     return view('layouts.documentation.developmentBreakdown');
 })->name('requirements');
+
+
+Route::get('/test', function(){
+    return view('halfmoon.index');
+});

@@ -3,8 +3,6 @@
     {{$book->title}}
 @endsection
 @section('content')
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     <div class="container-lg">
         <div class="row">
             <div class="col-4">
