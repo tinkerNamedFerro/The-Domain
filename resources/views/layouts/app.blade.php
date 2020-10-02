@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>The Domain</title>
 
     <!-- Scripts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -100,6 +100,9 @@
                     </form>
                 </div>
                 </li>
+                <span class="navbar-text">
+                    {{ Auth::user()->role }}
+                </span>
             @endguest
         </ul>
     </nav>

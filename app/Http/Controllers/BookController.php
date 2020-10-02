@@ -61,7 +61,7 @@ class BookController extends Controller
         //$books = $books->sortByDesc('id');
 
         $books = $books->sortByDesc(function ($book, $key) { //$book row and key is index
-            return $book->reviews()->avg('rating');
+            return $book->reviews()->avg('rating') + $book->reviews->count();
         });
         // dd($books[0]->reviews);
         // dd($request->query('genre'));
@@ -173,7 +173,7 @@ class BookController extends Controller
     {
         session(['edit_book_id' => $id]);
         $book = Books::find($id);
-        return view('layouts.books.edit_form')->with('book',$book)->with('genre', Config::get('constants.genre'));
+        return view('layouts.books.edit_form')->with('book',$book)->with('genre', Config::get('constants.genre'))->with('authors', Authors::all());
     }
 
     /**
@@ -185,31 +185,29 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         if (Auth::user()->role == "Curator" AND Auth::user()->status == "Approved"){
             $this->validate($request, [
                 'title'=> ['required' ,'max:255',new BookTitleChange($id)],
                 'publication' => 'required|numeric|gte:1701|lte:2020',
                 'genre'=> ['required','string',new GenreDropDown],
-                'first_name'=> 'required',
-                'last_name'=> 'required',
-                'date_of_birth'=> 'required|date',
-                'nationality'=> 'required',
                 ]);
             //Add book
+            
             $book = Books::find($id);
             $book->title = $request->title;
             $book->publication = $request->publication;
             $book->genre= $request->genre; 
             $book->save();
             // Check if author exists with first,last name and dob
-                                     
-            $author = Authors::where('id', $request->id)->first();
-    
-            $author->first_name = $request->first_name;
-            $author->last_name = $request->last_name;
-            $author->date_of_birth= $request->date_of_birth; 
-            $author->nationality= $request->nationality; 
-            $author->save();
+            foreach($request->input('addmore') as $key => $value) {
+                if (!DB::table('authors_books')->where('authors_id', $key)->where('books_id', $book->id)->exists()){
+                    $linking = new Authors_Books();
+                    $linking->authors_id = $key ;
+                    $linking->books_id = $book->id;
+                    $linking->save();
+                }
+            }                       
         
             
             //Remove session

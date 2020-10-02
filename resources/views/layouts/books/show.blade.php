@@ -13,6 +13,7 @@
             <div class="col-6">
                 <h1>{{$book->title}}</h1>
                 <p><b>Genre: </b>{{$book->genre}}</p>
+                <p><b>Rating: </b>{{round($book->reviews()->avg('rating'),1)}}</p>
                 <p><b>Authors: </b>
                 @foreach($book->authors as $author)
                         {{$author->first_name}} {{$author->last_name}},
@@ -22,14 +23,20 @@
                     @if (!$review_exists == 1)
                         <p><a href="{{ route('review.create', [$book->id])}}">Add review</a></p>
                     @endif
-                    <a class="btn btn-secondary" href="{{ route('book.getBook', [$book->id])}}" role="button">Get Book</a>
                     @if (Auth::user()->role == "Curator" AND Auth::user()->status == "Approved")
                         <a class="btn btn-secondary" href="{{ route('book.edit', [$book->id])}}" role="button">Edit Book</a>
+                        <a class="btn btn-danger" href="{{ route('book.edit', [$book->id])}}" onclick="event.preventDefault();
+                                        document.getElementById('delete_book').submit();">
+                        {{ __('Delete Book') }}
+                        </a>
                             <form id="delete_book" method="POST" action="{{ route('book.destroy', [$book->id])}}">
                                 {{csrf_field()}}
                                 {{ method_field('DELETE') }}
-                                <input button="submit" class="btn btn-secondary" type="submit" value="Delete Book">
+                               
                             </form>
+
+                        <br><br>
+                        <a class="btn btn-secondary" href="{{ route('book.getBook', [$book->id])}}" role="button">Get Book</a>
                     @endif
                 @endauth
             </div>

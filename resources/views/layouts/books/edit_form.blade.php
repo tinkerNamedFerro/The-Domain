@@ -4,8 +4,15 @@
 @endsection
 @section('content')
 <script type="application/javascript">
+    function add_author() {
+        var selectBox = document.getElementById("author_selector");
+        var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+        var selectedId = selectBox.options[selectBox.selectedIndex].id;
+        console.log(selectedValue + " " + selectedId);
+        $("#author_list").append('<tr><td>'+selectedId+'<input type="hidden" hidden name="addmore['+selectedValue+'][name]" value="'+selectedValue+'" class="form-control" /></td><td><a href="/webAppDev/assignment_2/book_review/public/author/'+selectedValue+'/edit"><button type="button" class="btn btn-secondary ">Edit</button></a></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
+    }
+
     $(document).on('click', '.remove-tr', function(){ 
-        console.log('sdasdsa'); 
         $(this).parent().parent().remove();
     });   
     $.ajaxSetup({
@@ -37,9 +44,10 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Edit Book') }}</div>
-                <div class="alert alert-danger collapse" id="must_have_author">
+                <div class="alert alert-danger hidden" id="must_have_author" style="display:none">
                   Book must at least one author 
                 </div>
+                <br>
                 <div class="card-body">
                     <form method="POST" action="{{ route('book.update', $book->id) }}">
                         @csrf
@@ -96,8 +104,30 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="author_selector" class="col-md-4 col-form-label text-md-right">{{ __('Author Selector') }}</label>
+
+                            <div class="col-md-6">
+                                <!-- <input id="role" type="text" class="form-control @error('role') is-invalid @enderror" name="role" value="{{ old('role') }}" required autocomplete="role"> -->
+                                <select name="author_selector" onchange="add_author();" class="js-example-basic-single form-control  @error('author_selector') is-invalid @enderror" id="author_selector">
+                                    <option value="0">-- Add Author --</option>
+                                    @foreach($authors as $author)
+                                        <option id="{{$author->first_name}} {{$author->last_name}}" value="{{$author->id}}">{{$author->first_name}} {{$author->last_name}}</option>
+                                    @endforeach
+                                    <!-- <option value="Member">Member</option> -->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button name="action" value="add_author" type="submit" class="btn btn-secondary">
+                                    {{ __('Add Author') }}
+                                </button>
+                            </div>
+                        </div>
+                        <br><br>
                         <div class="container col-md-8" id="author_list">
-                            <table>
+                            <table id="author_list">
                             @foreach($book->authors as $author)
                                 
                                     <tr>

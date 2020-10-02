@@ -15,10 +15,12 @@
     ## Reflection
     This project was a great summarisation of my experience learning Laravel. I started with the impression that PHP/Laravel was an outdated language only used by developers that are maintaining old software. I was pleasantly surprised with all the functionality and automation that laravel offers and I see it a very compelling option for any full stack developer who wants to quickly develop their ideas.
 
-    ## Areas in Laravel I want to develop
+    This project incorporated numerous different libraries for front-end and back-end that can easily translated to other projects in the future. I personally found the use of the css framework halfmoon to be extremely useful in creating a webapp that could easily switch between dark/lite mode. Another notable functionality was Markdown render which is my primary note keeping to allow for easy refer of documentation.
+    ## Areas in The Domain I want to develop
     * Unit testing
     * Deployment 
     * REST api development
+    * Look into a more accurate rating system following this paper [link](http://ranjithakumar.net/resources/sort_by_ratings.pdf)
 
     ## Employability reflection 
     Below is a table containing the non-technical skills I possessed. I found this introspection quite rewarding as it laid a foundation, which enlightened strengths that I hadn't quantified, and gaps the need work. 

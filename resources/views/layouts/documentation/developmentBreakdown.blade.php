@@ -11,6 +11,8 @@
     <h1>Requirements and Development Breakdown</h1>
     <br>
     @markdown
+### Notes of planning process
+This is my first attempt at using markdown for planning a project. I found the method to be a success despite encountering a few limitations. This type of planning did not scale well as seen by the size of the document resulted in a hindrance to searchability. In the future I'll investigate a more hierarchical structure to Steps and contain subtasks within their own files.
 ### Requirements
 * User login with account type (member, curator and admin)
 - [x] Display user details at top of page and logout

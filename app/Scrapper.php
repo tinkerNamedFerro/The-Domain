@@ -27,7 +27,9 @@ class Scrapper {
                 $mirror_link = $table_row->eq(9)->filter('a')->link();
                 $mirror_crawl = $this->client->click($mirror_link);
                 //dd($mirror_crawl->filter('h2')->eq(0)->filter('a')->attr('href')); // Get Download url
-                $this->download_url = $mirror_crawl->filter('h2')->eq(0)->filter('a')->attr('href');
+                if ($this->download_url == "blank"){
+                    $this->download_url = $mirror_crawl->filter('h2')->eq(0)->filter('a')->attr('href');
+                }
                 return("asd");
                 //print $node->text()."\n";
             }

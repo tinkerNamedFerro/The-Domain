@@ -59,6 +59,7 @@
                             <strong> Must upload book cover</strong>
                         </div>
                     @enderror
+                    <br>
                     <form method="POST" action="{{ route('book.store') }}">
                         @csrf
 
