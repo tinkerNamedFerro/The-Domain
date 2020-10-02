@@ -55,7 +55,7 @@
     </form>
 </div>
 <br>
-<div class="container-fluid">
+<div class="container-fluid pl-20">
     <div class="row flow-offset-1">
     
         @foreach($books as $book)

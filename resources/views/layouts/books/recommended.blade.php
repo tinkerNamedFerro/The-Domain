@@ -9,7 +9,7 @@
         Must be logged in or have made at least 3 reviews
     </div>
 @endif
-<div class="container-fluid">
+<div class="container-fluid pl-20">
     <div class="row flow-offset-1">
         @if ($books != 'null')
             @foreach($books as $book)

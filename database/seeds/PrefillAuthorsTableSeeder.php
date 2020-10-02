@@ -127,6 +127,16 @@ class PrefillAuthorsTableSeeder extends Seeder
                 'created_at' => '2020-09-30 11:47:10',
                 'updated_at' => '2020-09-30 11:47:10',
             ),
+            11 => 
+            array (
+                'id' => '13',
+                'first_name' => 'Ariel',
+                'last_name' => 'D. Arencibia',
+                'date_of_birth' => '01/01/1922',
+                'nationality' => 'American',
+                'created_at' => '2020-09-30 13:45:02',
+                'updated_at' => '2020-09-30 13:45:02',
+            ),
         ));
         
         
