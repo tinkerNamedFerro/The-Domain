@@ -62,10 +62,16 @@
             <div class="col-xs-5 col-md-3">
                 <div class="book tumbnail thumbnail-4"><a href="{{ route('book.show', [$book->id])}}"><img src="{{$book->book_cover}}" height="500" width="350" alt=""></a>
                     <div class="caption">
-                    <a class="song_text" href="{{ route('book.show', [$book->id])}}">{{$book->title}}</a>
+                    <a class="song_text" href="{{ route('book.show', [$book->id])}}">
+                    <b>Authors: </b>
+                        @foreach($book->authors as $author)
+                                {{$author->first_name}} {{$author->last_name}},
+                        @endforeach
+                    </a>
                     </div>
                 </div>
             </div>
+            <br>
             <!-- <a href="{{ route('book.show', [$book->id])}}"><li> {{$book->title}}</li></a>
             <img src="{{$book->book_cover}}" height="350" width="350" alt="">
             @foreach($book->authors as $author)

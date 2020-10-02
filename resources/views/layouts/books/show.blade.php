@@ -4,6 +4,7 @@
 @endsection
 @section('content')
     <div class="container-lg">
+    <div class="content">
         <div class="row">
             <div class="col-4">
                 <i class="las la-angle-left"></i><a href="{{ route('book.index') }}"> Back to list </a>
@@ -34,17 +35,18 @@
             </div>
         </div>
     </div>
+    </div>
     <br>
     <div class="container">
     @foreach($reviews as $review)
-        <div class="w-400 my-10">
+
             <div class="card">
                 <h2 class="card-title">
                     {{$review->users->name}}, Rating: {{$review->rating}}
                 </h2>
                 @auth
                 @if(Auth::user()->id == $review->users_id)
-                    <div class="text-right"> <!-- text-right = text-align: right -->
+                    <div class="text-left"> <!-- text-right = text-align: right -->
                         <a href="{{ route('review.edit', [$book->id, $review->id])}}" class="btn">Edit Review</a>
                     </div>
                 @endif
@@ -53,8 +55,9 @@
                 {{$review->written_text}}
                 </p>
             </div>
-        </div>
+        
     @endforeach
-    </div>
     {{$reviews->links()}}
+    </div>
+    
 @endsection

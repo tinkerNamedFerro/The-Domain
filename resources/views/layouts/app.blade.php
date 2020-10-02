@@ -37,7 +37,7 @@
     <!-- Navbar start -->
     <nav class="navbar">
       <!-- Reference: https://www.gethalfmoon.com/docs/navbar -->
-        <a href="#" class="navbar-brand">
+        <a href="{{ route('book.index') }}" class="navbar-brand">
             <img src="https://i.ibb.co/NmqbYc8/the-domain.png" alt="The Domain">
         </a>
         <span class="navbar-text ml-5"> <!-- ml-5 = margin-left: 0.5rem (5px) -->

@@ -57,12 +57,12 @@ class BookController extends Controller
         $books = $books->get();
         
         $books->sortBy('id');
+        
         //$books = $books->sortByDesc('id');
 
         $books = $books->sortByDesc(function ($book, $key) { //$book row and key is index
             return $book->reviews()->avg('rating');
         });
-        
         // dd($books[0]->reviews);
         // dd($request->query('genre'));
         //halfmoon.index
@@ -270,8 +270,8 @@ class BookController extends Controller
         // Get all books with reviews from the last 30 days 
         $books = Books::cursor()->filter(function ($book, $key) { //$book row and key is index
                 // dd();
-                if ($book->reviews()->count() > 2){
-                    return $book->reviews()->orderBy('updated_at', 'desc')->first()->updated_at > Carbon::now()->subDays(30);
+                if ($book->reviews()->count() > 2){ //At least two comments
+                    return $book->reviews()->orderBy('updated_at', 'desc')->first()->updated_at > Carbon::now()->subDays(30); // Get with comment from last 30 days
                 }else{
                     return false;
                 }
@@ -281,6 +281,8 @@ class BookController extends Controller
         $books = $books->sortByDesc(function ($book, $key) { //$book row and key is index
             return $book->reviews()->avg('rating');
         });
+        $books = $books->pluck('id')->toArray();
+        $books = Books::findMany($books); //Convert to elquent to use easy fk
         $books = $books->take(5);
         return(view('layouts.books.hot')->with('books', $books));
     }
@@ -317,8 +319,13 @@ class BookController extends Controller
                     return $book->reviews()->avg('rating');
                 });
                 
-                // Take the first four  
-                $books = $books->take(4);
+                // Take the first four 
+                
+                $books = $books->pluck('title')->toArray();
+                //dd($books);
+                $books = Books::whereIn("title",$books)->get();
+                // dd($books);
+                $books = $books->take(5);
                 // dd($books);
             }
         }

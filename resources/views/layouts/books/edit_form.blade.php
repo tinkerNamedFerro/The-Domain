@@ -3,7 +3,6 @@
     Books
 @endsection
 @section('content')
-<script type="application/javascript" src="{{ asset('js/app.js') }}"></script>
 <script type="application/javascript">
     $(document).on('click', '.remove-tr', function(){ 
         console.log('sdasdsa'); 
@@ -97,12 +96,12 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-md-10" id="author_list">
+                        <div class="container col-md-8" id="author_list">
                             <table>
                             @foreach($book->authors as $author)
                                 
                                     <tr>
-                                    <td>{{$author->first_name}} {{$author->last_name}}<input type="text" hidden name="addmore[{{$author->id}}][name]" value="{{$author->id}}" class="form-control" /></td>
+                                    <td>{{$author->first_name}} {{$author->last_name}}<input type="hidden" hidden name="addmore[{{$author->id}}][name]" value="{{$author->id}}" class="form-control" /></td>
                                     <td>
                                         <a href="{{ route('author.edit', [$author->id])}}">
                                         <button type="button" class="btn btn-secondary ">Edit</button>
@@ -116,7 +115,7 @@
                             @endforeach
                             </table>
                         </div>
-
+                        <br><br>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

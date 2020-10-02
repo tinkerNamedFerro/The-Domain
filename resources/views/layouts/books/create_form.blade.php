@@ -151,7 +151,7 @@
                         </div>
                         <br><br>
                         
-                        <div class="container col-md-8" id="author_list">
+                        <div class="container col-md-4" id="author_list">
                         </div>
                         <br><br>
 
