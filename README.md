@@ -7,5 +7,5 @@
 
 ## About the domain
 
-A simple Laravel project to display the recent books I've read. This webapp also uses mysql, docker, letsencrypt.
+A simple Laravel project to display the recent books I've read. This webapp also uses mysql, halfmoon, docker and letsencrypt.
 I'm aware sensitive infomation is exposed is only meant to be a showcase. 
