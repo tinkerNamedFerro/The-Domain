@@ -5,9 +5,9 @@
 
 ## Website can be found [here](https://books.jaden.services/book)
 
-Feel free to add a book to the library either by making an account or using the login info below.
+Feel free to add a book to the library [here](https://books.jaden.services/book/create) either by making an account or using the login info below.
 
-username: Admin@a.org
+username: Chris@a.org
 password: 1234
 
 ## About the domain
