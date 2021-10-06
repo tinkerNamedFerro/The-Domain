@@ -5,6 +5,11 @@
 
 ## Website can be found [here](https://books.jaden.services/book)
 
+Feel free to add a book to the library either by making an account or using the login info below.
+
+username: Admin@a.org
+password: 1234
+
 ## About the domain
 
 A simple Laravel project to display the recent books I've read. This webapp also uses mysql, halfmoon, docker and letsencrypt.
