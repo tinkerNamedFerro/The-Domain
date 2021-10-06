@@ -19,7 +19,7 @@ class PrefillAuthorsBooksTableSeeder extends Seeder
         \DB::table('authors_books')->insert(array (
             0 => 
             array (
-                'id' => '0',
+                //'id' => '0',
                 'authors_id' => '0',
                 'books_id' => '0',
                 'created_at' => '2020-09-29 07:29:20',
@@ -27,7 +27,7 @@ class PrefillAuthorsBooksTableSeeder extends Seeder
             ),
             1 => 
             array (
-                'id' => '1',
+                //'id' => '1',
                 'authors_id' => '1',
                 'books_id' => '1',
                 'created_at' => '2020-09-29 07:29:20',
@@ -35,7 +35,7 @@ class PrefillAuthorsBooksTableSeeder extends Seeder
             ),
             2 => 
             array (
-                'id' => '2',
+                //'id' => '2',
                 'authors_id' => '2',
                 'books_id' => '2',
                 'created_at' => '2020-09-29 07:34:55',
@@ -43,7 +43,7 @@ class PrefillAuthorsBooksTableSeeder extends Seeder
             ),
             3 => 
             array (
-                'id' => '12',
+                //'id' => '12',
                 'authors_id' => '5',
                 'books_id' => '6',
                 'created_at' => '2020-09-29 11:10:21',
@@ -51,7 +51,7 @@ class PrefillAuthorsBooksTableSeeder extends Seeder
             ),
             4 => 
             array (
-                'id' => '13',
+                //'id' => '13',
                 'authors_id' => '6',
                 'books_id' => '7',
                 'created_at' => '2020-09-30 00:43:39',
@@ -59,7 +59,7 @@ class PrefillAuthorsBooksTableSeeder extends Seeder
             ),
             5 => 
             array (
-                'id' => '14',
+                //'id' => '14',
                 'authors_id' => '7',
                 'books_id' => '8',
                 'created_at' => '2020-09-30 00:46:02',
@@ -67,7 +67,7 @@ class PrefillAuthorsBooksTableSeeder extends Seeder
             ),
             6 => 
             array (
-                'id' => '15',
+                //'id' => '15',
                 'authors_id' => '8',
                 'books_id' => '9',
                 'created_at' => '2020-09-30 00:47:44',
@@ -75,7 +75,7 @@ class PrefillAuthorsBooksTableSeeder extends Seeder
             ),
             7 => 
             array (
-                'id' => '16',
+                //'id' => '16',
                 'authors_id' => '9',
                 'books_id' => '10',
                 'created_at' => '2020-09-30 11:44:31',
@@ -83,7 +83,7 @@ class PrefillAuthorsBooksTableSeeder extends Seeder
             ),
             8 => 
             array (
-                'id' => '17',
+                //'id' => '17',
                 'authors_id' => '10',
                 'books_id' => '10',
                 'created_at' => '2020-09-30 11:44:31',
@@ -91,7 +91,7 @@ class PrefillAuthorsBooksTableSeeder extends Seeder
             ),
             9 => 
             array (
-                'id' => '18',
+                //'id' => '18',
                 'authors_id' => '11',
                 'books_id' => '10',
                 'created_at' => '2020-09-30 11:44:31',
@@ -99,7 +99,7 @@ class PrefillAuthorsBooksTableSeeder extends Seeder
             ),
             10 => 
             array (
-                'id' => '19',
+                //'id' => '19',
                 'authors_id' => '12',
                 'books_id' => '11',
                 'created_at' => '2020-09-30 11:48:09',
@@ -107,7 +107,7 @@ class PrefillAuthorsBooksTableSeeder extends Seeder
             ),
             11 => 
             array (
-                'id' => '20',
+                //'id' => '20',
                 'authors_id' => '13',
                 'books_id' => '12',
                 'created_at' => '2020-09-30 13:45:16',

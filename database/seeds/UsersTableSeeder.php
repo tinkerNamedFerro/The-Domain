@@ -12,7 +12,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'id' => 0,
+            //'id' => 0,
             'name' =>'Admin',
             'email' => 'Admin@a.org',
             'password' => bcrypt('1234'),
@@ -20,7 +20,7 @@ class UsersTableSeeder extends Seeder
             'status'=>'N/A'
         ]);
         DB::table('users')->insert([
-            'id' => 1,
+            //'id' => 1,
             'name' =>'Chris',
             'email' => 'Chris@a.org',
             'password' => bcrypt('1234'),
@@ -28,7 +28,7 @@ class UsersTableSeeder extends Seeder
             'status'=>'Approved'
         ]);
         DB::table('users')->insert([
-            'id' => 2,
+            //'id' => 2,
             'name' =>'Chloe',
             'email' => 'Chloe@a.org',
             'password' => bcrypt('1234'),
@@ -36,7 +36,7 @@ class UsersTableSeeder extends Seeder
             'status'=>'Waiting for approval'
         ]);
         DB::table('users')->insert([
-            'id' => 3,
+            //'id' => 3,
             'name' =>'Cara',
             'email' => 'Cara@a.org',
             'password' => bcrypt('1234'),
@@ -44,7 +44,7 @@ class UsersTableSeeder extends Seeder
             'status'=>'Waiting for approval'
         ]);
         DB::table('users')->insert([
-            'id' => 4,
+            //'id' => 4,
             'name' =>'Bob',
             'email' => 'Bob@a.org',
             'password' => bcrypt('1234'),
@@ -52,7 +52,7 @@ class UsersTableSeeder extends Seeder
             'status'=>'N/A'
         ]);
         DB::table('users')->insert([
-            'id' => 5,
+            //'id' => 5,
             'name' =>'Fred',
             'email' => 'Fred@a.org',
             'password' => bcrypt('1234'),

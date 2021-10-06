@@ -19,7 +19,7 @@ class PrefillBooksTableSeeder extends Seeder
         \DB::table('books')->insert(array (
             0 => 
             array (
-                'id' => '0',
+                //'id' => '0',
                 'title' => 'On Intelligence',
                 'genre' => 'science',
                 'publication' => '2003',
@@ -29,7 +29,7 @@ class PrefillBooksTableSeeder extends Seeder
             ),
             1 => 
             array (
-                'id' => '1',
+                //'id' => '1',
                 'title' => 'Nineteen Eighty-Four',
                 'genre' => 'Science fiction',
                 'publication' => '1949',
@@ -39,7 +39,7 @@ class PrefillBooksTableSeeder extends Seeder
             ),
             2 => 
             array (
-                'id' => '2',
+                //'id' => '2',
                 'title' => 'Halo: Cryptum',
                 'genre' => 'Science fiction',
                 'publication' => '2011',
@@ -49,7 +49,7 @@ class PrefillBooksTableSeeder extends Seeder
             ),
             3 => 
             array (
-                'id' => '6',
+                //'id' => '6',
                 'title' => 'Make Your Own Neural Network: A Gentle Journey Through the Mathematics',
                 'genre' => 'Science',
                 'publication' => '2016',
@@ -59,7 +59,7 @@ class PrefillBooksTableSeeder extends Seeder
             ),
             4 => 
             array (
-                'id' => '7',
+                //'id' => '7',
                 'title' => 'Structures: Or Why Things Don\'t Fall Down',
                 'genre' => 'Art/architecture',
                 'publication' => '2003',
@@ -69,7 +69,7 @@ class PrefillBooksTableSeeder extends Seeder
             ),
             5 => 
             array (
-                'id' => '8',
+                //'id' => '8',
                 'title' => 'Ignition!: An informal history of liquid rocket propellants',
                 'genre' => 'Science',
                 'publication' => '1972',
@@ -79,7 +79,7 @@ class PrefillBooksTableSeeder extends Seeder
             ),
             6 => 
             array (
-                'id' => '9',
+                //'id' => '9',
                 'title' => 'Six Easy Pieces: Essentials of Physics By Its Most Brilliant Teacher',
                 'genre' => 'Science',
                 'publication' => '1995',
@@ -89,7 +89,7 @@ class PrefillBooksTableSeeder extends Seeder
             ),
             7 => 
             array (
-                'id' => '10',
+                //'id' => '10',
                 'title' => 'Neuromancer',
                 'genre' => 'Science fiction',
                 'publication' => '1984',
@@ -99,7 +99,7 @@ class PrefillBooksTableSeeder extends Seeder
             ),
             8 => 
             array (
-                'id' => '11',
+                //'id' => '11',
                 'title' => 'Cat\'s Cradle',
                 'genre' => 'Science fiction',
                 'publication' => '1963',
@@ -109,7 +109,7 @@ class PrefillBooksTableSeeder extends Seeder
             ),
             9 => 
             array (
-                'id' => '12',
+                //'id' => '12',
                 'title' => 'Plant Genetic Engineering Towards the Third Millennium',
                 'genre' => 'Science',
                 'publication' => '2000',
