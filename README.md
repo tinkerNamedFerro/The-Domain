@@ -8,4 +8,4 @@
 ## About the domain
 
 A simple Laravel project to display the recent books I've read. This webapp also uses mysql, docker, letsencrypt.
-I am aware mysql password and db seeds are exposed. 
+I'm aware sensitive infomation is exposed is only meant to be a showcase. 
