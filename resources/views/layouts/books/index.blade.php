@@ -59,7 +59,7 @@
     <div class="row flow-offset-1">
     
         @foreach($books as $book)
-            <div class="col-xs-5 col-md-3" itemscope itemtype="https://schema.org/Movie">
+            <div class="col-xs-5 col-md-3" itemscope itemtype="https://schema.org/Book">
                 <div class="book tumbnail thumbnail-4"><a href="{{ route('book.show', [$book->id])}}"><img src="{{$book->book_cover}}" height="500" width="350" alt=""></a>
                     <div class="caption">
                     <a class="song_text" href="{{ route('book.show', [$book->id])}}">
