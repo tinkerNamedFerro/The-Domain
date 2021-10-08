@@ -59,11 +59,11 @@
     <div class="row flow-offset-1">
     
         @foreach($books as $book)
-            <div class="col-xs-5 col-md-3">
+            <div class="col-xs-5 col-md-3" itemscope itemtype="https://schema.org/Movie">
                 <div class="book tumbnail thumbnail-4"><a href="{{ route('book.show', [$book->id])}}"><img src="{{$book->book_cover}}" height="500" width="350" alt=""></a>
                     <div class="caption">
                     <a class="song_text" href="{{ route('book.show', [$book->id])}}">
-                    <b>Authors: </b>
+                    <b itemprop="author">Authors: </b>
                         @foreach($book->authors as $author)
                                 {{$author->first_name}} {{$author->last_name}},
                         @endforeach
@@ -73,9 +73,9 @@
             </div>
             <br>
             <!-- <a href="{{ route('book.show', [$book->id])}}"><li> {{$book->title}}</li></a>
-            <img src="{{$book->book_cover}}" height="350" width="350" alt="">
+            <img itemprop="image" src="{{$book->book_cover}}" height="350" width="350" alt="">
             @foreach($book->authors as $author)
-                <a>{{$author->first_name}} {{$author->last_name}}</a>
+                <a itemprop="author">{{$author->first_name}} {{$author->last_name}}</a>
             @endforeach -->
         @endforeach
     </div>
