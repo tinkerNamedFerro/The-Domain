@@ -14,7 +14,8 @@ use League\CommonMark\Extension\GithubFlavoredMarkdownExtension;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return redirect('/book');
+//return view('welcome');
 });
 
 Auth::routes();
